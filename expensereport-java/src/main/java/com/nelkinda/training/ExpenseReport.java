@@ -14,16 +14,18 @@ class Expense {
 
 public class ExpenseReport {
     public void printReport(List<Expense> expenses) {
-        int total = 0;
+        int total = 0; // smell: primitive obsession
         int mealExpenses = 0;
 
         System.out.println("Expenses " + new Date());
 
         for (Expense expense : expenses) {
+            // smell: switch on type code
             if (expense.type == ExpenseType.DINNER || expense.type == ExpenseType.BREAKFAST) {
                 mealExpenses += expense.amount;
             }
 
+            // smell: switch on type code
             String expenseName = "";
             switch (expense.type) {
             case DINNER:
@@ -37,8 +39,10 @@ public class ExpenseReport {
                 break;
             }
 
+            // smell: switch on type code
             String mealOverExpensesMarker = expense.type == ExpenseType.DINNER && expense.amount > 5000 || expense.type == ExpenseType.BREAKFAST && expense.amount > 1000 ? "X" : " ";
 
+            // SRP - calculation and print and format in same method -> split phase
             System.out.println(expenseName + "\t" + expense.amount + "\t" + mealOverExpensesMarker);
 
             total += expense.amount;
