@@ -8,7 +8,6 @@ enum ExpenseType {
 }
 
 class Expense {
-    // smell: could be value object, immutable
 
     public Expense(ExpenseType type, int amount) {
         this.type = type;
@@ -50,6 +49,10 @@ class Expense {
     }
 }
 
+class MealExpense {
+    // für mealAmount
+}
+
 public class ExpenseReport {
     public void printReport(List<Expense> expenses) {
         int total = 0; // smell: primitive obsession
@@ -75,3 +78,7 @@ public class ExpenseReport {
     }
 
 }
+
+// was ist drinnen
+// * aus Klasse Subklassen rausziehen ala Parrot
+// * Schleife splitten ala Split Phase
