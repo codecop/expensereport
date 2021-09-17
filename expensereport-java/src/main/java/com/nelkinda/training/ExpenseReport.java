@@ -8,6 +8,8 @@ enum ExpenseType {
 }
 
 class Expense {
+    // smell: could be value object, immutable
+    // no constructor
     ExpenseType type;
     int amount;
 }
