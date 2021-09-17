@@ -37,13 +37,13 @@ class ExpenseReportTest {
     void printReport() {
         ExpenseReport expenseReport = new ExpenseReport();
         List<Expense> expenses = Arrays.asList(
-                newExpense(ExpenseType.BREAKFAST, 10),
-                newExpense(ExpenseType.BREAKFAST, 1000),
-                newExpense(ExpenseType.BREAKFAST, 1001),
-                newExpense(ExpenseType.DINNER, 40),
-                newExpense(ExpenseType.DINNER, 5000),
-                newExpense(ExpenseType.DINNER, 5001),
-                newExpense(ExpenseType.CAR_RENTAL, 200)
+                new Expense(ExpenseType.BREAKFAST, 10),
+                new Expense(ExpenseType.BREAKFAST, 1000),
+                new Expense(ExpenseType.BREAKFAST, 1001),
+                new Expense(ExpenseType.DINNER, 40),
+                new Expense(ExpenseType.DINNER, 5000),
+                new Expense(ExpenseType.DINNER, 5001),
+                new Expense(ExpenseType.CAR_RENTAL, 200)
         );
 
         expenseReport.printReport(expenses);
@@ -63,12 +63,6 @@ class ExpenseReportTest {
                 "Total expenses: 12252\n", actualStdOut);
     }
 
-    private Expense newExpense(ExpenseType type, int amount) {
-        Expense expense = new Expense();
-        expense.type = type;
-        expense.amount = amount;
-        return expense;
-    }
 }
 
 // test smell: schreibt auf Stdout

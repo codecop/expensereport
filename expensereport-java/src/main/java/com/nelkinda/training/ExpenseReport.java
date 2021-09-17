@@ -9,9 +9,15 @@ enum ExpenseType {
 
 class Expense {
     // smell: could be value object, immutable
-    // no constructor
+
+    public Expense(ExpenseType type, int amount) {
+        this.type = type;
+        this.amount = amount;
+    }
+
     ExpenseType type;
     int amount;
+
 }
 
 public class ExpenseReport {
